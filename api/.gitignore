@@ -169,6 +169,11 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-./__pycache__/
-./utils/__pycache__/
-./tests/__pycache__/
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Другие кэши
+.pytest_cache/
