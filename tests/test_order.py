@@ -9,24 +9,12 @@ from api.routes import API_BASE_URL
 @allure.feature("Order Management")
 class TestOrders:
     @allure.title("Тест на успешное создание заказа")
-    def test_create_order_success(self):
+    def test_create_order_success(self, order_data):
         """Проверка успешного создания заказа."""
-        payload = {
-            "firstName": "Naruto",
-            "lastName": "Uchiha",
-            "address": "Konoha, 142 apt.",
-            "metroStation": 4,
-            "phone": "+7 800 355 35 35",
-            "rentTime": 5,
-            "deliveryDate": "2020-06-06",
-            "comment": "Saske, come back to Konoha",
-            "color": ["BLACK"]
-        }
-        
         with allure.step("Отправка запроса на создание заказа"):
-            response = requests.post(f'{API_BASE_URL}/orders', json=payload)
-        
-        with allure.step("Проверка успешного ответа"):
+            response = requests.post(f'{API_BASE_URL}/orders', json=order_data)
+            
+        with allure.step("Проверка успешного создания заказа"):
             assert response.status_code == 201  # Код 201 для успешного создания
             assert "track" in response.json()  # Проверяем, что в ответе есть track
         

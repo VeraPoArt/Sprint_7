@@ -1,0 +1,2 @@
+Courier login_3222 created successfully.
+Warning: Failed to delete courier login_3222 with ID 502880. Status: 404, Response: {"code":404,"message":"Курьера с таким id нет."}
